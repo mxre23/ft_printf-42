@@ -6,21 +6,31 @@
 /*   By: jmore-oj <jmore-oj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 21:38:30 by jmore-oj          #+#    #+#             */
-/*   Updated: 2024/03/13 21:34:32 by jmore-oj         ###   ########.fr       */
+/*   Updated: 2024/03/16 17:59:41 by jmore-oj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static void	ft_putstr(char *s, int fd)
+static char	*ft_putstr(char *s)
 {
-	result = ft_putstr_fd(char *s, int fd);
-	return (result);
+	size_t	len;
+	size_t	i;
+
+	i = 0;
+	len = ft_strlen(s);
+	while(*s != % && i < len)
+	{
+		write(1, &s[i++], 1);
+	}
 }
-
-
-
-
-
+ 
 int	ft_printf(char const *, ...)
 {
+	va_list	args;
+
+
+
+
+	va_start(args, s);
+
 
 }
