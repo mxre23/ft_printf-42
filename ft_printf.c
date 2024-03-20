@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static char	*ft_putstr(char *s)
+static char	*ft_check_type(char *s)
 {
 	size_t	len;
 	size_t	i;
@@ -26,11 +26,11 @@ static char	*ft_putstr(char *s)
 int	ft_printf(char const *, ...)
 {
 	va_list	args;
+	int	c;
 
-
-
-
+	c = 0;
 	va_start(args, s);
-
-
+	c = ft_checktype(s, args, c);
+	va_end(args);
+	return(c);
 }
