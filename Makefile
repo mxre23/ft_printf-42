@@ -6,7 +6,7 @@
 #    By: jmore-oj <jmore-oj@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 20:35:00 by jmore-oj          #+#    #+#              #
-#    Updated: 2024/03/11 22:09:55 by jmore-oj         ###   ########.fr        #
+#    Updated: 2024/03/23 20:18:25 by jmore-oj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,13 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = 
+SRC = ft_printf.c ft_putchr.c ft_putstrr.c ft_putnbrr.c ft_puthex.c
 
 HEADER = ft_printf.h
 
 OBJ = ${SRC:.c=.o}
+
+INCLUDE = ft_printf.h Makefile
 
 all: ${NAME}
 

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmore-oj <jmore-oj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/23 14:55:44 by jmore-oj          #+#    #+#             */
-/*   Updated: 2024/03/23 20:16:57 by jmore-oj         ###   ########.fr       */
+/*   Created: 2024/03/23 18:21:18 by jmore-oj          #+#    #+#             */
+/*   Updated: 2024/03/23 20:05:06 by jmore-oj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <stddef.h>
-# include <unistd.h>
-# include <stdarg.h>
+int	ft_putchr(char c)
+{
+	int	count;
 
-int		ft_printf(char const *s, ...);
-int		ft_putchr(char c);
-int		ft_putstrr(char *s);
-long	ft_putnbrr(long nbr);
-long	ft_puthex(unsigned long nbr, char *base, int isptr);
-
-#endif
+	count = 0;
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	count++;
+	return (count);
+}
