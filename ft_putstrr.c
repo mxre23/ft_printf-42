@@ -6,13 +6,13 @@
 /*   By: jmore-oj <jmore-oj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 14:53:08 by jmore-oj          #+#    #+#             */
-/*   Updated: 2024/03/23 20:17:53 by jmore-oj         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:16:44 by jmore-oj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstrr(char const *s)
+int	ft_putstrr(char *s)
 {
 	size_t	i;
 	int		count;

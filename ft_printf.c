@@ -6,7 +6,7 @@
 /*   By: jmore-oj <jmore-oj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 21:38:30 by jmore-oj          #+#    #+#             */
-/*   Updated: 2024/03/23 20:09:13 by jmore-oj         ###   ########.fr       */
+/*   Updated: 2024/03/24 20:21:44 by jmore-oj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,55 +33,45 @@ static int	ft_vselect(char const s, va_list args)
 		count = ft_puthex(va_arg(args, unsigned int), "0123456789ABCDEF", 0);
 	else if (s == '%')
 		count = ft_putchr('%');
-	else
-		count = -1;
-	return (count);
-}
-
-static int	ft_check(char const *s, va_list args)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		if (s[i] == '%')
-		{
-			i++;
-			count = ft_vselect((char)s[i], args);
-			if (count == -1)
-				return (-1);
-		}
-		else
-		{
-			if (write(1, &s[i], 1) == -1)
-				return (-1);
-			count++;
-		}
-		i++;
-	}
+	if (count == -1)
+		return (-1);
 	return (count);
 }
 
 int	ft_printf(char const *s, ...)
 {
+	int		i;
+	int		count;
+	int		total;
 	va_list	args;
-	int		c;
 
-	c = 0;
+	i = 0;
+	count = 0;
+	total = 0;
 	va_start(args, s);
-	c = ft_check(s, args);
+	while (s[i] != '\0')
+	{
+		if (s[i] == '%')
+			count = ft_vselect(s[++i], args);
+		else
+			count = write (1, &s[i], 1);
+		if (count == -1)
+			return (-1);
+		total += count;
+		i++;
+	}
 	va_end(args);
-	return (c);
+	return (total);
 }
 /*
 int	main(void)
 {
-	char	*c = "Miniminiminiminililooooo";
+	unsigned long	hex = -5000000000;
 
-	ft_printf("ft_print Lenght = %d\n", ft_printf("My name is %s\n", c));
-	printf("printf Lenght = %d\n", ("My name is %s\n", c));
+	ft_printf("mia %d\n", -10);	
+	printf("printf %d\n", -10);
+	ft_printf("ft_printf %%\n");
+	printf("printf %%\n");
+	ft_printf("mia %x\n", hex);
 	return (0);
 }*/
